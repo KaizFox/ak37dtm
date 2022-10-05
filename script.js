@@ -56,7 +56,7 @@ async function newRow(c, r, x, w, j, size, lineWidth = 1) {
       await drawRect(i, j, size[1], size[0], lineWidth, 2);
       await fetch("list.json").then(res => res.json()).then(data => {
         ctx.textAlign = "center";
-        ctx.font = "16px Arial"
+        ctx.font = "16px Arial";
         ctx.fillText(data[r][c - 1], i + size[1] / 2, j + size[0] / 2);
       });
     }
@@ -98,16 +98,4 @@ async function start() {
   build(0, 0, 200, 200, 2);
   // document.getElementById('btn').style.display = 'none';
   document.getElementById('canvas').style.display = 'block';
-}
-
-async function update() {
-  // await sleep();
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
-async function upload() {
 }
