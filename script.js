@@ -54,7 +54,7 @@ async function newRow(c, r, x, w, j, size, lineWidth = 1) {
     c++;
     if (c != 3 && c != 8) {
       await drawRect(i, j, size[1], size[0], lineWidth, 2);
-      await fetch("abc.json").then(res => res.json()).then(data => {
+      await fetch("list.json").then(res => res.json()).then(data => {
         ctx.textAlign = "center";
         ctx.font = "16px Arial"
         ctx.fillText(data[r][c - 1], i + size[1] / 2, j + size[0] / 2);
