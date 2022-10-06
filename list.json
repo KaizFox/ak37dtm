@@ -1,51 +1,7 @@
 [
   ["", "", "", "Tùng Thư", "Công Minh", "Đức Minh", "Trúc Lâm", "", "", ""],
-  [
-    "Hoàng Huy",
-    "Phương Nga",
-    "",
-    "Mỹ Uyên",
-    "Trọng Toàn",
-    "Tường Anh",
-    "Gia Bảo",
-    "",
-    "Việt Hà",
-    "Anh Quân"
-  ],
-  [
-    "Hoàng Phát",
-    "Minh Trang",
-    "",
-    "Văn Minh",
-    "Hà Trang",
-    "Hà Anh",
-    "Thái An",
-    "",
-    "Trang Nhung",
-    "Minh Hiếu"
-  ],
-  [
-    "Anh Khang",
-    "Thế Tài",
-    "",
-    "",
-    "Khánh Gia",
-    "Tài Định",
-    "Trọng Kim",
-    "",
-    "Thiệu Bảo",
-    "Hà An"
-  ],
-  [
-    "Quang Minh",
-    "Anh Thư",
-    "",
-    "Tuệ Nhi",
-    "Khắc Dũng",
-    "Hoàng Lâm",
-    "Thảo Nguyên",
-    "",
-    "Hữu Tùng",
-    "Tâm Đan"
-  ]
+  ["Hoàng Huy", "Phương Nga", "", "Mỹ Uyên", "Trọng Toàn", "Tường Anh", "Gia Bảo", "", "Việt Hà", "Anh Quân"],
+  ["Hoàng Phát", "Minh Trang", "", "Văn Minh", "Hà Trang", "Hà Anh", "Thái An", "", "Trang Nhung", "Minh Hiếu"],
+  ["Anh Khang", "Thế Tài", "", "", "Khánh Gia", "Tài Định", "Trọng Kim", "", "Thiệu Bảo", "Hà An"],
+  ["Quang Minh", "Anh Thư", "", "Tuệ Nhi", "Khắc Dũng", "Hoàng Lâm", "Thảo Nguyên", "", "Hữu Tùng", "Tâm Đan"]
 ]
