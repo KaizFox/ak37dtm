@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile('./abc.json', 'utf-8', (err, dat) => {
+fs.readFile('./list.json', 'utf-8', (err, dat) => {
   if (err) console.error(err);
   let data = JSON.parse(dat.toString());
   data.push(data.shift());
@@ -9,7 +9,7 @@ fs.readFile('./abc.json', 'utf-8', (err, dat) => {
   data[4][1] = data[0][1]; data[0][1] = '';
   data[4][8] = data[0][8]; data[0][8] = '';
   data[4][9] = data[0][9]; data[0][9] = '';
-  fs.writeFile("./abc.json", JSON.stringify(data), (err) => {
+  fs.writeFile("./list.json", JSON.stringify(data), (err) => {
     if (err) console.error(err);
     console.log("Updated successful");
   })
