@@ -15,21 +15,26 @@ text/plain, application/pdf, image/*" class="file" id="file" required/>
 <script>
   'use strict';
   async function upload() {
-    let formData = new FormData();
-    let uploader = $('#file')[0];
-    let status = $('#status')[0];
-    if(!uploader.files[0]) status.innerText = 'chua tai file';
-    $.ajax({
-        url: 'upload.php',
-        type: 'POST',
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function(data) {
-            console.log(data);
-            alert(data);
-        }
-    })
+    // let formData = new FormData();
+    // let uploader = $('#file')[0];
+    // let status = $('#status')[0];
+    // if(!uploader.files[0]) status.innerText = 'chua tai file';
+    // $.ajax({
+    //     url: 'upload.php',
+    //     type: 'POST',
+    //     data: formData,
+    //     processData: false,
+    //     contentType: false,
+    //     success: function(data) {
+    //         console.log(data);
+    //         alert(data);
+    //     }
+    // })
+      let data = document.getElementById("file").files[0];
+      let entry = document.getElementById("file").files[0];
+      console.log('doupload',entry,data)
+      await fetch('uploads/' + encodeURIComponent(entry.name), {method:'PUT',body:data});
+      alert('your file has been uploaded');
   }
 </script>
 </body>
