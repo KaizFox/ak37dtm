@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 <input type="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
@@ -13,25 +15,21 @@ text/plain, application/pdf, image/*" class="file" id="file" required/>
 <script>
   'use strict';
   async function upload() {
-    let form = new FormData();
-    let uploader = document.getElementById('file');
-    let status = document.getElementById('status');
+    let formData = new FormData();
+    let uploader = $('#file')[0];
+    let status = $('#status')[0];
     if(!uploader.files[0]) status.innerText = 'chua tai file';
-    form.append("file", uploader.files[0]);
-    const ctrl = new AbortController();
-    setTimeout(() => ctrl.abort(), 5000);
-
-    try {
-        await fetch('upload', {
-            method: 'POST',
-            body: form,
-            signal: ctrl.signal
-        });
-        status.innerText = 'luu file thanh cong';
-    } catch(e) {
-        status.innerText = 'luu file that bai';
-        throw e;
-    }
+    $.ajax({
+        url: 'upload.php',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+            console.log(data);
+            alert(data);
+        }
+    })
   }
 </script>
 </body>
