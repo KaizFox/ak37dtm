@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+text/plain, application/pdf, image/*" class="file" id="file" required/>
+<button onclick="upload()">Upload</button>
+<h1 id="status"></h1>
+
+<script>
+  'use strict';
+  async function upload() {
+    let form = new FormData();
+    let uploader = document.getElementById('file');
+    let status = document.getElementById('status');
+    if(!uploader.files[0]) status.innerText = 'chua tai file';
+    form.append("file", uploader.files[0]);
+    await fetch('upload.php', {
+      method: 'POST',
+      body: form
+    }).catch((e) => {
+        status.innerText = 'luu file that bai';
+        throw e;
+    });
+      status.innerText = 'luu file thanh cong';
+  }
+</script>
+</body>
+</html>
