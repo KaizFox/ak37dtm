@@ -18,14 +18,20 @@ text/plain, application/pdf, image/*" class="file" id="file" required/>
     let status = document.getElementById('status');
     if(!uploader.files[0]) status.innerText = 'chua tai file';
     form.append("file", uploader.files[0]);
-    await fetch('upload.php', {
-      method: 'POST',
-      body: form
-    }).catch((e) => {
+    const ctrl = new AbortController();
+    setTimeout(() => ctrl.abort(), 5000);
+
+    try {
+        await fetch('upload', {
+            method: 'POST',
+            body: form,
+            signal: ctrl.signal
+        });
+        status.innerText = 'luu file thanh cong';
+    } catch(e) {
         status.innerText = 'luu file that bai';
         throw e;
-    });
-      status.innerText = 'luu file thanh cong';
+    }
   }
 </script>
 </body>
