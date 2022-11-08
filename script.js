@@ -57,6 +57,7 @@ async function newRow(c, r, x, w, j, size, lineWidth = 1) {
       await fetch("list.json").then(res => res.json()).then(data => {
         ctx.textAlign = "center";
         ctx.font = "16px Arial";
+        ctx.fillStyle = 'white';
         ctx.fillText(data[r][c - 1], i + size[1] / 2, j + size[0] / 2);
       });
     }
@@ -73,6 +74,7 @@ async function build(x, y, x1, y1, lineWidth = 1) {
   let j = y;
   let r = 0;
 
+  ctx.strokeStyle = 'white';
   await newRow(c, r, x, w, j, size, lineWidth);
   c = 0; r++; j += size[0];
   await newRow(c, r, x, w, j, size, lineWidth);
@@ -85,7 +87,7 @@ async function build(x, y, x1, y1, lineWidth = 1) {
   c = 0; r++; j += size[0];
 
   ctx.font = "16px Arial"
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "white";
   await ctx.fillText("CỬA LỚP", 45, j + 40);
   await drawArrow(ctx, 0, j + 47, 100, j + 47, 10, 'red');
   drawRect(w - 200, j + 47, w - 100, j + 57);
@@ -95,7 +97,12 @@ async function build(x, y, x1, y1, lineWidth = 1) {
 }
 
 async function start() {
-  build(0, 0, 200, 200, 2);
-  // document.getElementById('btn').style.display = 'none';
+  await build(0, 0, 200, 200, 2);
+  await sleep(Math.floor(Math.random() * 3000) + 2000);
   document.getElementById('canvas').style.display = 'block';
+  document.getElementById('atom').style.display = 'none';
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
